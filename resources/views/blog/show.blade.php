@@ -15,6 +15,12 @@
     <p class="text-xl text-gray-700 pt-8 pd-10 leading-8 font-light" >
         {{ $post->description }}
     </p>
+    
+</div><br>
+<div class="w-4/5 m-auto text-left">
+@comments([
+    'model' => $post,
+    'perPage' => 2
+])
 </div>
-
 @endsection

@@ -17,7 +17,7 @@
         <div class="pt-15 w-4/5 m-auto">
             <a href="blog/create" class="px-5 bg-indigo-500 uppercase 
             bg-transparent text-gray-200 text-xs font-extrabold py-3 rounded-2xl hover:bg-indigo-700">
-            Create</a>
+            Create Post</a>
         </div>
         @endif
         </div>
@@ -43,9 +43,9 @@
         <p class="text-xl text-gray-700 pt-8 pd-10 leading-8 font-light">
             {{ $post->description }}
         </p>
-        <a href="/blog/{{ $post->slug }}" class="uppercase text-black-100 text-lg font-extrabold hover:underline
+        <a href="/blog/{{ $post->slug }}" class="uppercase w-1/6 text-center bg-green-300 text-lg font-extrabold hover:bg-green-500
         rounded-2xl p-1">
-        reading more</a>
+        read more</a>
         @if(isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
         <span class="text-black-100 text-xs font-extrabold hover:underline
         rounded-2xl p-1 italic">
@@ -59,11 +59,13 @@
                 @csrf
                 @method('delete')
                 <button type="submit" class="bg-red-500 text-gray-100 text-xl font-extrabold hover:bg-red-700
-        rounded-2xl p-2 italic">Delete</button>
+        rounded-2xl p-2 italic">Delete Post</button>
             </form>
         </span>
         @endif
     </div>
 @endforeach
-
+<div class="text-center d-flex text-xl">
+    {{ $posts -> links('pagination::bootstrap-4') }}
+</div>
 @endsection
